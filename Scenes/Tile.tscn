@@ -3,30 +3,27 @@
 [ext_resource path="res://Scripts/Tile.gd" type="Script" id=1]
 [ext_resource path="res://Assets/tile_gray.png" type="Texture" id=2]
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30, 13.9819 )
 
-[node name="Tiles" type="Node" groups=[
+[node name="Tile" type="StaticBody2D" groups=[
 "Tiles",
 ]]
-
-[node name="Grey Tiles" type="Node" parent="."]
-
-[node name="Tile" type="StaticBody2D" parent="Grey Tiles"]
-position = Vector2( 30, 400 )
+visible = false
+position = Vector2( 32, 15 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="Sprite" parent="Grey Tiles/Tile"]
+[node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Grey Tiles/Tile"]
-shape = SubResource( 4 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }

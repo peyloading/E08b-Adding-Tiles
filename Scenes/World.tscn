@@ -1,10 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/paddle.gd" type="Script" id=1]
 [ext_resource path="res://Assets/paddle.png" type="Texture" id=2]
-[ext_resource path="res://Assets/ball.png" type="Texture" id=3]
-[ext_resource path="res://Scripts/Tile.gd" type="Script" id=4]
-[ext_resource path="res://Assets/tile_gray.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/Ball.gd" type="Script" id=3]
+[ext_resource path="res://Assets/ball.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Tile.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 53.311, 12.2888 )
@@ -15,9 +15,6 @@ bounce = 1.0
 
 [sub_resource type="CircleShape2D" id=3]
 radius = 12.018
-
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 30, 13.9819 )
 
 [node name="World" type="Node"]
 
@@ -42,12 +39,13 @@ gravity_scale = 0.0
 linear_velocity = Vector2( 200, -200 )
 linear_damp = 0.0
 angular_damp = 0.0
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Sprite" type="Sprite" parent="Ball"]
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
 shape = SubResource( 3 )
@@ -60,22 +58,196 @@ polygon = PoolVector2Array( 0, 640, 0, 0, 1024, 0, 1024, 640, 1088, 640, 1088, -
 [node name="Tiles" type="Node" parent="."]
 
 [node name="Grey Tiles" type="Node" parent="Tiles"]
+editor/display_folded = true
 
-[node name="Tile" type="StaticBody2D" parent="Tiles/Grey Tiles"]
-position = Vector2( 30, 400 )
-script = ExtResource( 4 )
-__meta__ = {
-"_edit_group_": true
-}
+[node name="Tile" parent="Tiles/Grey Tiles" instance=ExtResource( 5 )]
+visible = true
+position = Vector2( 80, 300 )
 
-[node name="Sprite" type="Sprite" parent="Tiles/Grey Tiles/Tile"]
-texture = ExtResource( 5 )
-__meta__ = {
-"_edit_group_": true
-}
+[node name="Tile8" parent="Tiles/Grey Tiles" instance=ExtResource( 5 )]
+visible = true
+position = Vector2( 840, 300 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/Grey Tiles/Tile"]
-shape = SubResource( 4 )
-__meta__ = {
-"_edit_group_": true
-}
+[node name="Tile9" parent="Tiles/Grey Tiles" instance=ExtResource( 5 )]
+visible = true
+position = Vector2( 950, 300 )
+
+[node name="Tile2" parent="Tiles/Grey Tiles" instance=ExtResource( 5 )]
+visible = true
+position = Vector2( 740, 300 )
+
+[node name="Tile3" parent="Tiles/Grey Tiles" instance=ExtResource( 5 )]
+visible = true
+position = Vector2( 630, 300 )
+
+[node name="Tile4" parent="Tiles/Grey Tiles" instance=ExtResource( 5 )]
+visible = true
+position = Vector2( 512, 300 )
+
+[node name="Tile5" parent="Tiles/Grey Tiles" instance=ExtResource( 5 )]
+visible = true
+position = Vector2( 410, 300 )
+
+[node name="Tile6" parent="Tiles/Grey Tiles" instance=ExtResource( 5 )]
+visible = true
+position = Vector2( 300, 300 )
+
+[node name="Tile7" parent="Tiles/Grey Tiles" instance=ExtResource( 5 )]
+visible = true
+position = Vector2( 190, 300 )
+
+[node name="Red Tiles" type="Node" parent="Tiles"]
+editor/display_folded = true
+
+[node name="Tile" parent="Tiles/Red Tiles" instance=ExtResource( 5 )]
+visible = true
+position = Vector2( 890, 260 )
+
+[node name="Tile3" parent="Tiles/Red Tiles" instance=ExtResource( 5 )]
+visible = true
+position = Vector2( 780, 260 )
+
+[node name="Tile4" parent="Tiles/Red Tiles" instance=ExtResource( 5 )]
+visible = true
+position = Vector2( 680, 260 )
+
+[node name="Tile5" parent="Tiles/Red Tiles" instance=ExtResource( 5 )]
+visible = true
+position = Vector2( 570, 260 )
+
+[node name="Tile6" parent="Tiles/Red Tiles" instance=ExtResource( 5 )]
+visible = true
+position = Vector2( 460, 260 )
+
+[node name="Tile7" parent="Tiles/Red Tiles" instance=ExtResource( 5 )]
+visible = true
+position = Vector2( 350, 260 )
+
+[node name="Tile8" parent="Tiles/Red Tiles" instance=ExtResource( 5 )]
+visible = true
+position = Vector2( 240, 260 )
+
+[node name="Tile9" parent="Tiles/Red Tiles" instance=ExtResource( 5 )]
+visible = true
+position = Vector2( 130, 260 )
+
+[node name="Tile2" parent="Tiles/Red Tiles" instance=ExtResource( 5 )]
+visible = true
+position = Vector2( 30, 260 )
+
+[node name="Blue Tiles" type="Node" parent="Tiles"]
+editor/display_folded = true
+
+[node name="Tile" parent="Tiles/Blue Tiles" instance=ExtResource( 5 )]
+visible = true
+position = Vector2( 80, 220 )
+
+[node name="Tile2" parent="Tiles/Blue Tiles" instance=ExtResource( 5 )]
+visible = true
+position = Vector2( 180, 220 )
+
+[node name="Tile3" parent="Tiles/Blue Tiles" instance=ExtResource( 5 )]
+visible = true
+position = Vector2( 290, 220 )
+
+[node name="Tile4" parent="Tiles/Blue Tiles" instance=ExtResource( 5 )]
+visible = true
+position = Vector2( 410, 220 )
+
+[node name="Tile5" parent="Tiles/Blue Tiles" instance=ExtResource( 5 )]
+visible = true
+position = Vector2( 510, 220 )
+
+[node name="Tile6" parent="Tiles/Blue Tiles" instance=ExtResource( 5 )]
+visible = true
+position = Vector2( 630, 220 )
+
+[node name="Tile7" parent="Tiles/Blue Tiles" instance=ExtResource( 5 )]
+visible = true
+position = Vector2( 730, 220 )
+
+[node name="Tile8" parent="Tiles/Blue Tiles" instance=ExtResource( 5 )]
+visible = true
+position = Vector2( 830, 220 )
+
+[node name="Tile9" parent="Tiles/Blue Tiles" instance=ExtResource( 5 )]
+visible = true
+position = Vector2( 950, 220 )
+
+[node name="Green Tiles" type="Node" parent="Tiles"]
+editor/display_folded = true
+
+[node name="Tile" parent="Tiles/Green Tiles" instance=ExtResource( 5 )]
+visible = true
+position = Vector2( 990, 180 )
+
+[node name="Tile2" parent="Tiles/Green Tiles" instance=ExtResource( 5 )]
+visible = true
+position = Vector2( 890, 180 )
+
+[node name="Tile3" parent="Tiles/Green Tiles" instance=ExtResource( 5 )]
+visible = true
+position = Vector2( 780, 180 )
+
+[node name="Tile4" parent="Tiles/Green Tiles" instance=ExtResource( 5 )]
+visible = true
+position = Vector2( 680, 180 )
+
+[node name="Tile5" parent="Tiles/Green Tiles" instance=ExtResource( 5 )]
+visible = true
+position = Vector2( 570, 180 )
+
+[node name="Tile6" parent="Tiles/Green Tiles" instance=ExtResource( 5 )]
+visible = true
+position = Vector2( 460, 180 )
+
+[node name="Tile7" parent="Tiles/Green Tiles" instance=ExtResource( 5 )]
+visible = true
+position = Vector2( 350, 180 )
+
+[node name="Tile8" parent="Tiles/Green Tiles" instance=ExtResource( 5 )]
+visible = true
+position = Vector2( 240, 180 )
+
+[node name="Tile9" parent="Tiles/Green Tiles" instance=ExtResource( 5 )]
+visible = true
+position = Vector2( 130, 180 )
+
+[node name="Purple Tiles" type="Node" parent="Tiles"]
+editor/display_folded = true
+
+[node name="Tile" parent="Tiles/Purple Tiles" instance=ExtResource( 5 )]
+visible = true
+position = Vector2( 990, 340 )
+
+[node name="Tile2" parent="Tiles/Purple Tiles" instance=ExtResource( 5 )]
+visible = true
+position = Vector2( 900, 340 )
+
+[node name="Tile3" parent="Tiles/Purple Tiles" instance=ExtResource( 5 )]
+visible = true
+position = Vector2( 790, 340 )
+
+[node name="Tile4" parent="Tiles/Purple Tiles" instance=ExtResource( 5 )]
+visible = true
+position = Vector2( 680, 340 )
+
+[node name="Tile5" parent="Tiles/Purple Tiles" instance=ExtResource( 5 )]
+visible = true
+position = Vector2( 570, 340 )
+
+[node name="Tile6" parent="Tiles/Purple Tiles" instance=ExtResource( 5 )]
+visible = true
+position = Vector2( 460, 340 )
+
+[node name="Tile7" parent="Tiles/Purple Tiles" instance=ExtResource( 5 )]
+visible = true
+position = Vector2( 360, 340 )
+
+[node name="Tile8" parent="Tiles/Purple Tiles" instance=ExtResource( 5 )]
+visible = true
+position = Vector2( 250, 340 )
+
+[node name="Tile9" parent="Tiles/Purple Tiles" instance=ExtResource( 5 )]
+visible = true
+position = Vector2( 130, 340 )
